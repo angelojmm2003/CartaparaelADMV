@@ -1,0 +1,514 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+ body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #3b1f35,
+            #160f18 60%,
+            #0b080c
+        );
+
+    color: white;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    overflow: hidden;
+}
+
+
+
+/* =========================
+   PANTALLAS
+========================= */
+
+.pantalla {
+
+    min-height: 100vh;
+    width: 100%;
+
+    display: none;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    animation: aparecer 0.8s ease;
+}
+
+.pantalla.activa {
+    display: flex;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   TEXTOS
+========================= */
+
+h1 {
+
+    font-size: 38px;
+
+    margin-bottom: 20px;
+}
+
+h2 {
+
+    font-size: 32px;
+
+    margin-bottom: 15px;
+}
+
+p {
+
+    max-width: 360px;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+    opacity: 0.9;
+}
+
+
+/* =========================
+   CORAZÓN
+========================= */
+
+.corazon {
+
+    font-size: 70px;
+
+    margin-bottom: 25px;
+
+    animation:
+        latido 1.5s infinite;
+}
+
+@keyframes latido {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+button {
+
+    margin-top: 30px;
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 40px;
+
+    background: white;
+
+    color: #241522;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.3);
+
+    transition: 0.25s;
+}
+
+button:hover {
+
+    transform: scale(1.05);
+}
+
+button:active {
+
+    transform: scale(0.95);
+}
+
+.secundario {
+
+    background: transparent;
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    box-shadow: none;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   AMOURURUR
+========================= */
+
+.amour {
+
+    font-size: 25px;
+}
+
+
+/* =========================
+   CANCIÓN
+========================= */
+
+#cancion {
+    position: relative;
+}
+
+.disco-grande {
+
+    width: 130px;
+
+    height: 130px;
+
+    margin-bottom: 30px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 52px;
+
+    background:
+        radial-gradient(
+            circle,
+            #555 0 7%,
+            #111 8% 20%,
+            #333 21% 23%,
+            #111 24% 40%,
+            #333 41% 43%,
+            #111 44% 100%
+        );
+
+    box-shadow:
+        0 0 0 8px
+        rgba(255,255,255,0.04),
+
+        0 0 40px
+        rgba(255,255,255,0.18);
+
+    animation:
+        girar 5s linear infinite;
+}
+
+@keyframes girar {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.etiqueta {
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    opacity: 0.55;
+
+    margin-bottom: 8px;
+}
+
+#cancion h2 {
+
+    font-size: 42px;
+
+    margin-bottom: 5px;
+}
+
+.artista {
+
+    font-size: 18px;
+
+    opacity: 0.65;
+
+    margin-bottom: 20px;
+}
+
+.linea-musical {
+
+    font-size: 22px;
+
+    letter-spacing: 8px;
+
+    opacity: 0.5;
+
+    margin-bottom: 25px;
+}
+
+.boton-musica {
+
+    margin-top: 25px;
+
+    padding: 17px 35px;
+
+    font-size: 17px;
+}
+
+.pequeno {
+
+    margin-top: 15px;
+
+    font-size: 12px;
+
+    opacity: 0.45;
+}
+
+
+/* =========================
+   REGALO
+========================= */
+
+.regalo {
+
+    font-size: 85px;
+
+    margin-bottom: 25px;
+
+    cursor: pointer;
+
+    animation:
+        flotar 2s ease-in-out infinite;
+}
+
+@keyframes flotar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final {
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    max-width: 380px;
+}
+
+.firma {
+
+    margin-top: 30px;
+
+    font-size: 18px;
+
+    font-style: italic;
+
+    opacity: 0.9;
+}
+
+
+/* =========================
+   FLORES
+========================= */
+
+.flor {
+
+    position: fixed;
+
+    top: -40px;
+
+    font-size: 22px;
+
+    animation:
+        caer linear forwards;
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+@keyframes caer {
+
+    to {
+
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 29px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .pantalla {
+        padding: 25px 22px;
+    }
+
+    .disco-grande {
+
+        width: 110px;
+        height: 110px;
+
+        font-size: 45px;
+    }
+
+    .boton-musica {
+
+        padding:
+            16px 28px;
+    }
+
+}
+
+/* =========================
+   ÚLTIMA PANTALLA
+========================= */
+
+#final {
+    justify-content: flex-start;
+    padding-top: 70px;
+    padding-bottom: 50px;
+
+    overflow-y: auto;
+
+    min-height: 100vh;
+}
+
+#final .corazon {
+    margin-bottom: 15px;
+}
+
+#final h2 {
+    margin-bottom: 20px;
+}
+
+#final .final {
+    font-size: 17px;
+    line-height: 1.8;
+
+    max-width: 380px;
+
+    padding-bottom: 10px;
+}
+
+#final .firma {
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    #final {
+        justify-content: flex-start;
+
+        padding-top: 45px;
+        padding-left: 22px;
+        padding-right: 22px;
+        padding-bottom: 40px;
+    }
+
+    #final .corazon {
+        font-size: 55px;
+    }
+
+    #final h2 {
+        font-size: 28px;
+    }
+
+    #final .final {
+        font-size: 16px;
+        line-height: 1.75;
+    }
+
+    #final .firma {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+}

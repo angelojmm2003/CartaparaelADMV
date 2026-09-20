@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Para mi amor mío 🤍</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at top,
+                    #3b1f35,
+                    #160f18 60%,
+                    #0b080c
+                );
+
+            color: white;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            overflow: hidden;
+        }
+
+        .pantalla {
+            min-height: 100vh;
+            width: 100%;
+
+            display: none;
+
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 30px;
+
+            animation: aparecer 0.8s ease;
+        }
+
+        .pantalla.activa {
+            display: flex;
+        }
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        h1 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            max-width: 360px;
+            line-height: 1.8;
+            font-size: 17px;
+            opacity: 0.9;
+        }
+
+        .corazon {
+            font-size: 70px;
+            margin-bottom: 25px;
+
+            animation:
+                latido 1.5s infinite;
+        }
+
+        @keyframes latido {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+        }
+
+        button {
+            margin-top: 30px;
+
+            border: none;
+
+            padding: 15px 30px;
+
+            border-radius: 40px;
+
+            background: white;
+            color: #241522;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.3);
+
+            transition: 0.25s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        .secundario {
+            background: transparent;
+            color: white;
+
+            border: 1px solid rgba(255,255,255,0.35);
+
+            box-shadow: none;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           FLORES
+        ========================= */
+
+        .flor {
+            position: fixed;
+
+            top: -40px;
+
+            font-size: 22px;
+
+            animation:
+                caer linear forwards;
+
+            pointer-events: none;
+        }
+
+        @keyframes caer {
+
+            to {
+                transform:
+                    translateY(110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+            }
+
+        }
+
+        /* =========================
+           PANTALLA CANCIÓN
+        ========================= */
+
+        #cancion {
+            position: relative;
+        }
+
+        .disco-grande {
+
+            width: 130px;
+            height: 130px;
+
+            margin-bottom: 30px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 52px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #555 0 7%,
+                    #111 8% 20%,
+                    #333 21% 23%,
+                    #111 24% 40%,
+                    #333 41% 43%,
+                    #111 44% 100%
+                );
+
+            box-shadow:
+                0 0 0 8px rgba(255,255,255,0.04),
+                0 0 40px rgba(255,255,255,0.18);
+
+            animation:
+                girar 5s linear infinite;
+        }
+
+        @keyframes girar {
+
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+        .etiqueta {
+
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            opacity: 0.55;
+
+            margin-bottom: 8px;
+        }
+
+        #cancion h2 {
+
+            font-size: 42px;
+
+            margin-bottom: 5px;
+        }
+
+        .artista {
+
+            font-size: 18px;
+
+            opacity: 0.65;
+
+            margin-bottom: 20px;
+        }
+
+        .linea-musical {
+
+            font-size: 22px;
+
+            letter-spacing: 8px;
+
+            opacity: 0.5;
+
+            margin-bottom: 25px;
+        }
+
+        .texto-cancion {
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+            max-width: 330px;
+
+            margin-bottom: 10px;
+        }
+
+        .boton-musica {
+
+            margin-top: 25px;
+
+            padding: 17px 35px;
+
+            font-size: 17px;
+
+            background: white;
+
+            color: #21151f;
+        }
+
+        .pequeno {
+
+            margin-top: 15px;
+
+            font-size: 12px;
+
+            opacity: 0.45;
+        }
+
+        /* =========================
+           RAFFAELLO
+        ========================= */
+
+        .regalo {
+
+            font-size: 85px;
+
+            margin-bottom: 25px;
+
+            cursor: pointer;
+
+            animation:
+                flotar 2s ease-in-out infinite;
+        }
+
+        @keyframes flotar {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+        }
+
+        .final {
+
+            font-size: 22px;
+
+            line-height: 1.8;
+
+            max-width: 380px;
+        }
+
+        .firma {
+
+            margin-top: 30px;
+
+            font-size: 18px;
+
+            font-style: italic;
+
+            opacity: 0.9;
+        }
+
+        .pequena {
+            font-size: 13px;
+            opacity: 0.55;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         PANTALLA 1
+    ========================== -->
+
+    <section
+        id="inicio"
+        class="pantalla activa"
+    >
+
+        <div class="corazon">
+            🤍
+        </div>
+
+        <h1>
+            Para el Amor de mi vida
+        </h1>
+
+        <p>
+            Hay algo que preparé especialmente
+            para ti...
+        </p>
+
+        <button onclick="siguiente('mirada')">
+            Abrir 🤍
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PANTALLA 2
+    ========================== -->
+
+    <section
+        id="mirada"
+        class="pantalla"
+    >
+
+        <div class="corazon">
+            👀
+        </div>
+
+        <h2>
+            Corazon Hermoso
+        </h2>
+
+        <p>
+            Hay algo de ti que podría reconocer
+            entre mil personas:
+            <br><br>
+
+            Tu ojos.
+            <br><br>
+
+            Me encanta cómo me miras.
+            Me encanta el color de tus ojos.
+
+            <br><br>
+
+            Pero sobre todo,
+            me encantas demasiado,
+            espero que esos ojos nunca me dejen de ver.
+        </p>
+
+        <button onclick="siguiente('personalidad')">
+            Continuar 🌼
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PANTALLA 3
+    ========================== -->
+
+    <section
+        id="personalidad"
+        class="pantalla"
+    >
+
+        <div class="corazon">
+            ❤️
+        </div>
+
+        <h2>
+            Unas de las tantas cosas que amo de ti...
+        </h2>
+
+        <p>
+            Amo tu personalidad.
+
+            <br><br>
+
+            Amo esa forma tan tuya
+            de ser.
+
+            <br><br>
+
+            Pero hay algo que amo
+            todavía más:
+
+            <br><br>
+
+            <strong>
+                la manera en la que me amas
+                y tambien en la forma que amas a tus perritas.
+            </strong>
+        </p>
+
+        <button onclick="siguiente('abrazo')">
+            Hay algo más...
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PANTALLA 4
+    ========================== -->
+
+    <section
+        id="abrazo"
+        class="pantalla"
+    >
+
+        <div class="corazon">
+            🫂
+        </div>
+
+        <h2>
+            Ese abrazo que me enamora...
+        </h2>
+
+        <p>
+            Me encanta cuando entrelazas
+            tus brazos alrededor de mi cuello
+            y me miras a los ojos y me das besito.
+
+            <br><br>
+
+            No sé si tú sabes lo bonito
+            que se siente para mí ese momento.
+        </p>
+
+        <button onclick="siguiente('moto')">
+            Otro recuerdo 🏍️
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PANTALLA 5
+    ========================== -->
+
+    <section
+        id="moto"
+        class="pantalla"
+    >
+
+        <div class="corazon">
+            🏍️
+        </div>
+
+        <h2>
+            Nuestras vueltas en la N160, Dominar, MT03
+        </h2>
+
+        <p>
+            Siempre nos mojamos en la moto.
+
+            <br><br>
+
+            Y cómo olvidar cuando
+            íbamos por ahí y escuchaba decirte:
+
+            <br><br>
+
+            <strong style="font-size: 25px;">
+                “AMOURURURURUR” ❤️
+            </strong>
+
+            <br><br>
+
+            Son pequeños recuerdos,
+            pero para mí significan muchísimo.
+        </p>
+
+        <button onclick="siguiente('cancion')">
+            Ahora escucha algo 🎵
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PANTALLA 6 — CANCIÓN
+    ========================== -->
+
+    <section
+        id="cancion"
+        class="pantalla"
+    >
+
+        <div class="disco-grande">
+            🎵
+        </div>
+
+        <p class="etiqueta">
+            UNA CANCIÓN PARA TI
+        </p>
+
+        <h2>
+            ADMV
+        </h2>
+
+        <p class="artista">
+            Maluma
+        </p>
+
+        <div class="linea-musical">
+            ♫ ♪ ♫ ♪ ♫
+        </div>
+
+        <p class="texto-cancion">
+            Hay canciones que simplemente suenan...
+        </p>
+
+        <p class="texto-cancion">
+            y hay canciones que nos hacen sentir.
+            ❤️
+        </p>
+
+        <p class="texto-cancion">
+            Esta cancion me la recomendaste y es la mejor
+            y aparte es tu artista favorito...
+        </p>
+
+        <!-- ESTE ES EL BOTÓN -->
+
+        <button
+            class="boton-musica"
+            onclick="escucharCancion()"
+        >
+            ▶ Escuchar ADMV
+        </button>
+
+        <p class="pequeno">
+            🎧 Ponte tu unico audifono y disfrutala..
+        </p>
+
+        <button
+            class="secundario"
+            onclick="siguiente('regalo')"
+        >
+            Continuar 🌼
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PANTALLA 7 — REGALO
+    ========================== -->
+
+    <section
+        id="regalo"
+        class="pantalla"
+    >
+
+        <div
+            class="regalo"
+            onclick="abrirRegalo()"
+        >
+            🤍🍫
+        </div>
+
+        <h2>
+            Tengo algo para ti
+        </h2>
+
+        <p>
+            Y obviamente...
+            tenía que ser blanco. 🤍
+        </p>
+
+        <button onclick="abrirRegalo()">
+            Abrir regalo 🎁
+        </button>
+
+    </section>
+
+
+    <!-- =========================
+         PANTALLA 8 — FINAL
+    ========================== -->
+
+    <section
+        id="final"
+        class="pantalla"
+    >
+
+        <div class="corazon">
+            ❤️
+        </div>
+
+        <h2>
+            Mi amor mío
+        </h2>
+
+        <p class="final">
+
+            No quiero que sientas que tienes
+            que hacer algo para recibir mi amor.
+
+            <br><br>
+
+            No quiero apresurar nada.
+
+            <br><br>
+
+            Quiero disfrutar cada momento,
+            cuidar lo que estamos construyendo
+            y demostrarte con hechos todo
+            lo que siento por ti.
+
+            <br><br>
+
+            No quiero volver simplemente
+            a lo que fuimos.
+
+            <br><br>
+
+            <strong>
+                Quiero construir contigo
+                algo todavía más bonito.
+            </strong>
+
+            <br><br>
+
+            Te amo, mi amor mío. ❤️
+
+        </p>
+
+        <p class="firma">
+            De tu hombre,<br>
+            para su hermosa princesita. 🌼
+        </p>
+
+    </section>
+
+
+    <script>
+
+        /* =========================
+           CAMBIAR DE PANTALLA
+        ========================== */
+
+        function siguiente(id) {
+
+            document
+                .querySelectorAll(".pantalla")
+                .forEach(function(pantalla) {
+
+                    pantalla.classList.remove("activa");
+
+                });
+
+            document
+                .getElementById(id)
+                .classList.add("activa");
+
+            flores();
+
+        }
+
+
+        /* =========================
+           BOTÓN DE LA CANCIÓN
+        ========================== */
+
+        function escucharCancion() {
+
+            const spotify =
+                "https://open.spotify.com/track/4j3iq13kHs5PB94jdTp3Y3";
+
+            const youtube =
+                "https://www.youtube.com/watch?v=lNBSdFw0t_w";
+
+            const opcion = confirm(
+
+                "🎵 ADMV — Maluma\n\n" +
+
+                "Presiona Aceptar para escucharla en Spotify\n\n" +
+
+                "o Cancelar para escucharla en YouTube."
+
+            );
+
+            if (opcion) {
+
+                window.open(
+                    spotify,
+                    "_blank"
+                );
+
+            } else {
+
+                window.open(
+                    youtube,
+                    "_blank"
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           REGALO
+        ========================== */
+
+        function abrirRegalo() {
+
+            siguiente("final");
+
+            flores();
+
+        }
+
+
+        /* =========================
+           FLORES
+        ========================== */
+
+        function flores() {
+
+            const simbolos = [
+                "🌼",
+                "🌸",
+                "🌷",
+                "🤍"
+            ];
+
+            for (
+                let i = 0;
+                i < 12;
+                i++
+            ) {
+
+                const flor =
+                    document.createElement("div");
+
+                flor.className = "flor";
+
+                flor.innerHTML =
+                    simbolos[
+                        Math.floor(
+                            Math.random() *
+                            simbolos.length
+                        )
+                    ];
+
+                flor.style.left =
+                    Math.random() * 100 + "%";
+
+                flor.style.animationDuration =
+                    (4 + Math.random() * 4) + "s";
+
+                document.body.appendChild(flor);
+
+                setTimeout(function() {
+
+                    flor.remove();
+
+                }, 8000);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
